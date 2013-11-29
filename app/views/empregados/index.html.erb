@@ -1,0 +1,29 @@
+<h1>Listing empregados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Departamento</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empregados.each do |empregado| %>
+      <tr>
+        <td><%= empregado.name %></td>
+        <td><%= empregado.departamento_id %></td>
+        <td><%= link_to 'Show', empregado %></td>
+        <td><%= link_to 'Edit', edit_empregado_path(empregado) %></td>
+        <td><%= link_to 'Destroy', empregado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empregado', new_empregado_path %>
