@@ -1,12 +1,21 @@
 Letsgetpro::Application.routes.draw do
 
+  devise_for :empregados
   resources :empregados
 
   resources :departamentos
 
   resources :empresas
 
-  root 'welcome#index'
+  get "search" => "search#index"
+
+  get "about" => "static#about"
+
+  authenticated do
+    root :to => 'welcome#timeline', as: :authenticated
+  end
+
+  root :to => 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

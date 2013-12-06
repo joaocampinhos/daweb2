@@ -44,3 +44,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'rails_12factor', group: :production
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :ref => '49aebde'

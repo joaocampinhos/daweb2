@@ -1,5 +1,6 @@
 class EmpregadosController < ApplicationController
   before_action :set_empregado, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_empregado!
 
   # GET /empregados
   # GET /empregados.json

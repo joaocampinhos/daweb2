@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Let's get Pro - Sobre Nós</title>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+</head>
+<body>
+<div class="container">
+  <h1 class="titleabout center">
+    <%= link_to("Let's get Pro", root_path) %>
+  </h1>
+  <div class="fullwidth">
+    <h1 class="title">Autores</h1>
+    <div class="metade">
+      <h2>João Campinhos</h2>
+      <p class="nt">41721 - P1</p>
+      <img src="http://www.gravatar.com/avatar/3067a4daf9ea35c5ad0f48791df2dfe4?s=135" alt="foto">
+    </div>
+    <div class="metade">
+      <h2>Francisco Vieira</h2>
+      <p class="nt">41701 - P2</p>
+      <img src="http://i.imgur.com/TxfmkzK.png" alt="foto">
+    </div>
+    <h1 class="title">Sobre a aplicação</h1>
+    <p> Esta página foi feita no âmbito da cadeira de Desenvolvimento de Aplicações Web. Apesar de não ser uma aplicação funcional, pode com certeza ser ligada a um back-end e funcionar como tal. Para a realização deste trabalho foi utilizado apenas a biblioteca jQuery, sendo que tudo o resto foi feito nativamente sem recurso a bibliotecas ou frameworks. Para além disso, todo o projecto foi feito respeitando os standards de HTML5, ou seja, está feito a pensar no futuro.</p>
+    <p>De salientar que o unico erro que obtivemos no css foi no: <code>pointer-events: none;</code> que o validador diz que não existe quando na verdade é o que faz com que o botão fique sem receber eventos de clique. Também se queixa dos prefixos (-webkit) mas até o standard estar bem definido cada browser implementa as coisas à sua maneira.</p>
+    <p><a href="http://validator.w3.org/check?uri=http%3A%2F%2Fcampinhos.pt%2Fdaweb1%2Fapp%2F"><img src="http://www.w3.org/Icons/valid-html401-blue" alt="Validator"></a> <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fcampinhos.pt%2Fdaweb1%2Fapp%2F"><img src="http://www.w3.org/Icons/valid-css-blue.png" alt="validator"></a></p>
+  </div>
+</div>
+</body>
+</html>
+
