@@ -14,20 +14,20 @@
       <%= link_to("Let's get Pro", root_path) %>
     </div>
     <div class="avatar--mobile menutoggle">
-      <img class="avatar avatar__big round" alt="avatar" src="images/avatar.jpg">
+      <img class="avatar avatar__big round" alt="avatar" src="/images/avatar/<%= current_empregado.image %>.png">
     </div>
     <div class="menu menutoggle">
       <ul class="nav">
         <li><a href="/">Home</a></li>
         <li><a href="/empregados/<%= current_empregado.id %>">Perfil</a></li>
-        <li><a href="./contacts.html">Contactos</a></li>
-        <li><a href="./companies.html">Empresas</a></li>
+        <li><a href="/contactos">Contactos</a></li>
+        <li><a href="/empresas">Empresas</a></li>
         <li class="hidden-desktop"><a href="#/settings">Definições</a></li>
         <li class="hidden-desktop"><a href="#/logout">Sair</a></li>
       </ul>
     </div>
     <div class="fright dropdown hidden-phone">
-      <a class="login" href="#"><img class="avatar fleft" alt="avatar" src="/images/avatar/<%= current_empregado.id %>.png"><span>▾</span></a>
+      <a class="login" href="#"><img class="avatar fleft" alt="avatar" src="/images/avatar/<%= current_empregado.image %>.png"><span>▾</span></a>
       <div class="submenu">
         <ul>
           <li><%= link_to "Sair", destroy_empregado_session_path, :method => :delete %></li>

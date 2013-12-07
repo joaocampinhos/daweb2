@@ -7,6 +7,8 @@ Letsgetpro::Application.routes.draw do
 
   resources :empresas
 
+  resources :contactos
+
   get "search" => "search#index"
 
   get "about" => "static#about"

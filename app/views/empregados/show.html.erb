@@ -1,36 +1,34 @@
 <div class="container">
-        <div class="fullwidth">
-          <div class="profile">
-            <div class="profilebig">
-              <img src="/images/avatar/<%= @empregado.id %>.png" alt="avatar">
-            </div>
-            <div class="info">
-              <h1 class="name"><%= @empregado.name %></h1>
-              <h3 class="job"><span class="jobedit">Canalizador</span> na empresa <span class="compedit"><%= @empregado.departamento_id %></span></h3>
-              <p class="location"><span class="cityedit">Lisboa</span>, <span class="countedit">Portugal</span></p>
-              <h3 class="friends"><a href="./contacts.html">3 contactos</a></h3>
-            </div>
-            <% if current_empregado.id == @empregado.id %>
-              <div class="add"><a class="button edit" href="#">Editar Perfil</a></div>
-            <% else %>
-              <div class="add"><a class="button" href="#">Adicionar Contacto</a></div>
-            <% end %>
-          </div>
-          <div class="about">
-            <h2 class="title">Sobre mim</h2>
-          </div>
-          <div>
-            <h2 class="title">Curriculum Vitæ</h2>
-            <br>
-            <h3 class="title left">Experiência Profissional</h3>
-            <p class="cv"></p>
-            <h3 class="title left">Formação Académica</h3>
-            <p class="cv"></p>
-            <h3 class="title left">Competências</h3>
-            <p class="cv"></p>
-          </div>
-        </div>
-      <footer>
-        Página criada no âmbito da cadeira <a href="http://ctp.di.fct.unl.pt/lei/daweb/">DAWeb</a>. <a href="/about.html">Sobre os autores</a>
-      </footer>
+  <div class="fullwidth">
+    <div class="profile">
+      <div class="profilebig">
+        <img src="/images/avatar/<%= @empregado.image %>.png" alt="avatar">
+      </div>
+      <div class="info">
+        <h1 class="name"><%= @empregado.name %></h1>
+        <h3 class="job"><span class="jobedit">#CARGO</span> na empresa <span class="compedit"><%= @empregado.departamento.empresa.name %></span></h3>
+        <p class="location">#LOCATION</p>
+        <h3 class="friends"><a href="/contactos"><%= @empregado.contactos.count %> contactos</a></h3>
+        <!--Estamos a contar os pendentes!!!-->
+      </div>
+      <% if current_empregado.id == @empregado.id %>
+        <div class="add"><a class="button edit" href="#">Editar Perfil</a></div>
+      <% else %>
+        <div class="add"><a class="button" href="#">Adicionar Contacto</a></div>
+      <% end %>
     </div>
+    <div class="about">
+      <h2 class="title">Sobre mim</h2>
+    </div>
+    <div>
+      <h2 class="title">Curriculum Vitæ</h2>
+      <br>
+      <h3 class="title left">Experiência Profissional</h3>
+      <p class="cv"></p>
+      <h3 class="title left">Formação Académica</h3>
+      <p class="cv"></p>
+      <h3 class="title left">Competências</h3>
+      <p class="cv"></p>
+    </div>
+  </div>
+</div>

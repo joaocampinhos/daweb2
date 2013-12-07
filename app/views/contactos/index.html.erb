@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="fullwidth">
+    <div>
+      <form action="./search.html" method="get">
+        <input name="contact" type="search" class="search" placeholder="Pesquisa">
+      </form>
+    </div>
+    <div class="pendingreq">
+      <h2 class="title">Pedidos Pendentes</h2>
+      <% @pendentes.each do |a| %>
+        <div class="contact pending">
+          <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
+          <p><%= link_to a.name , a %> <span><%= link_to a.email, "mailto:#{a.email}" %></span></p>
+        </div>
+      <% end %>
+      <% @porac.each do |a| %>
+        <div class="contact pending">
+          <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
+          <p><%= link_to a.name , a %> <span><%= link_to a.email, "mailto:#{a.email}" %></span></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="confirmed">
+      <h2 class="title">Contactos</h2>
+      <% @amigos.each do |a| %>
+        <div class="contact">
+          <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
+          <p><%= link_to a.name , a %> <span><%= link_to a.email, "mailto:#{a.email}" %></span></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,27 +1,19 @@
-<h1>Listing empresas</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @empresas.each do |empresa| %>
-      <tr>
-        <td><%= empresa.name %></td>
-        <td><%= link_to 'Show', empresa %></td>
-        <td><%= link_to 'Edit', edit_empresa_path(empresa) %></td>
-        <td><%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Empresa', new_empresa_path %>
+<div class="container">
+  <div class="fullwidth">
+    <div>
+      <form action="./search.html" method="get">
+        <input name="company" type="search" class="search" placeholder="Pesquisa">
+      </form>
+    </div>
+    <div>
+      <h2 class="title">Empresas</h2>
+      <% @empresas.each do |empresa| %>
+        <div class="company">
+          <h3><%= link_to empresa.name, empresa %></h3>
+          <p>Desc da empresa</p>
+          <p class="func"><%=empresa.empregados.count%> Funcionários</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

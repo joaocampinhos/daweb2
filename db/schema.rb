@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206113206) do
+ActiveRecord::Schema.define(version: 20131206162502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contactos", force: true do |t|
+    t.integer  "empregado_id"
+    t.integer  "amigo_id"
+    t.boolean  "pendente"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "departamentos", force: true do |t|
     t.string   "name"
@@ -38,6 +46,8 @@ ActiveRecord::Schema.define(version: 20131206113206) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "images"
+    t.integer  "image"
   end
 
   add_index "empregados", ["email"], name: "index_empregados_on_email", unique: true, using: :btree

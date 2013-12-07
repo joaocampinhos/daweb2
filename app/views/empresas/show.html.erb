@@ -1,9 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @empresa.name %>
-</p>
-
-<%= link_to 'Edit', edit_empresa_path(@empresa) %> |
-<%= link_to 'Back', empresas_path %>
+<div class="container">
+  <div class="fullwidth">
+    <div class="profile">
+      <div class="profilebig">
+        <img src="images/logocompany.jpg" alt="logo">
+      </div>
+      <div class="info">
+        <h1 class="name"><%= @empresa.name %></h1>
+        <p class="location">Lisboa, Portugal</p>
+        <h3 class="friends"><%= @empresa.empregados.count %> Funcionarios</h3>
+        <h3 class="friends">2 vagas</h3>
+      </div>
+      <div class="add"><a class="button" href="#">Concorrer a lugar</a></div>
+    </div>
+    <div class="about">
+      <h2 class="title">Descrição da empresa</h2>
+      <p>A agencia de Modelos gente bonita é o expoente maximo das agencias de imagem em Portugal, tem por objectivo projectar modelos para os mais famosos desfiles de moda e mais cobiçados anuncios publicitários.
+      Temos os melhores profissionais na Area e apenas os mais bonitos conseguem um lugar nesta agencia de prestígio mundial</p>
+    </div>
+    <div>
+      <h2 class="title">Funcionarios Actuais</h2>
+      <br>
+      <div>
+        <% @empresa.departamentos.each do |dep| %>
+          <h3 class="title">Departamento de <%= dep.name %></h3>
+          <% dep.empregados.each do |emp| %>
+            <div class="contact">
+              <%= link_to image_tag("/images/avatar/#{emp.image}.png", alt: emp.name), emp %>
+              <p><%= link_to emp.name, emp %> <span><%= link_to emp.email, "mailto:#{emp.email}" %></span></p>
+            </div> 
+          <% end %>
+        <% end %>
+        <div>
+          <h3 class="title">Ex-funcionarios</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
