@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-	belongs_to :empregado
+  belongs_to :empregado
 end

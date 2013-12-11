@@ -35,7 +35,7 @@ empresas.each do |e|
   e[:departamentos].each do |d|
     d_obj = Departamento.create(name: d[:name], empresa_id: e_obj.id)
     d[:empregados].each do |emp|
-      Empregado.create(name: emp[:name], email: emp[:email], password: emp[:password], password_confirmation: emp[:password_confirmation], departamento_id: d_obj.id, image: emp[:image], location: emp[:location], job: emp[:job], about: emp[:about], post: emp[:post])
+      Empregado.create(name: emp[:name], email: emp[:email], password: emp[:password], password_confirmation: emp[:password_confirmation], departamento_id: d_obj.id, image: emp[:image], location: emp[:location], job: emp[:job], about: emp[:about])
     end
   end
 end
@@ -51,5 +51,6 @@ Contacto.create(empregado_id: fannyid, amigo_id: chicoid, pendente: false)
 Contacto.create(empregado_id: jennyid, amigo_id: chicoid, pendente: false)
 Contacto.create(empregado_id: chicoid, amigo_id: jennyid, pendente: false)
 Contacto.create(empregado_id: chicoid, amigo_id: Empregado.find_by(name: 'Katy').id, pendente: true)
-post.create(empregado_id: fannyid, text:"havia quem dissese que eu nao era uma princesa mas depois do que mostrei na casa dos segredos nao restam duvidas", image: "1")
+
+Post.create(empregado_id: fannyid, text:"havia quem dissese que eu nao era uma princesa mas depois do que mostrei na casa dos segredos nao restam duvidas", image: "1")
 
