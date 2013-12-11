@@ -6,8 +6,8 @@
       </div>
       <div class="info">
         <h1 class="name"><%= @empregado.name %></h1>
-        <h3 class="job"><span class="jobedit">#CARGO</span> na empresa <span class="compedit"><%= @empregado.departamento.empresa.name %></span></h3>
-        <p class="location">#LOCATION</p>
+        <h3 class="job"><span class="jobedit"><%= @empregado.job %></span> na empresa <span class="compedit"><%= @empregado.departamento.empresa.name %></span></h3>
+        <p class="location"><span class="locationedit"><%= @empregado.location %></p>
         <h3 class="friends"><a href="/contactos"><%= @empregado.contactos.count %> contactos</a></h3>
         <!--Estamos a contar os pendentes!!!-->
       </div>
@@ -19,6 +19,7 @@
     </div>
     <div class="about">
       <h2 class="title">Sobre mim</h2>
+       <p class="location"><span class="locationedit"><%= @empregado.about %></p>
     </div>
     <div>
       <h2 class="title">Curriculum Vitæ</h2>
