@@ -1,5 +1,7 @@
 Letsgetpro::Application.routes.draw do
 
+  resources :posts
+
   devise_for :empregados
   resources :empregados
 
