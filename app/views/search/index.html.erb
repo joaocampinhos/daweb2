@@ -1,1 +1,30 @@
-<p> Aqui fica a pesquisa </p>
+<div class="container">
+  <div class="fullwidth">
+    <h1 class="title">Pesquisa</h1>
+    <br>
+    <div>
+      <% if @empregados.any? %>
+        <h2 class="title">Empregados</h2>
+      <% end %>
+      <% @empregados.each do |a| %>
+        <div class="contact">
+          <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
+          <p><%= link_to a.name , a %> <span><%= link_to a.email, "mailto:#{a.email}" %></span></p>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <% if @empresas.any? %>
+        <h2 class="title">Empresas</h2>
+      <% end %>
+      <% @empresas.each do |e| %>
+        <div class="company">
+          <h3><%= link_to e.name, e %></h3>
+          <p><%=h truncate(e.description, :length => 100) %></p>
+          <p class="func"><%=e.empregados.count%> Funcionários</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

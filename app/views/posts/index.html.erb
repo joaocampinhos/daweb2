@@ -1,33 +1,36 @@
-<h2 class="title">Publicações</h2>
-
-
-<table>
-  <thead>
-    <tr>
-      <th><h4 class="name"><%= @post.empregado_id %></h4></th>
-      <th><%= @post.text%></th>
-      <th><img class="imgExt" alt="avatar" src="images/colegas.jpg"><%= @post.image %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.empregado_id. %></td>
-        <td><%= post.text %></td>
-        <td><%= post.image %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
-
+<div class="container">
+  <div class="fullwidth">
+    <div>
+      <h2 class="title">Publicações</h2>
+      <a href="#new" class="newn button btnsmall">Nova publicação</a>
+    </div>
+    <div class="none newpub">
+      <textarea></textarea>
+      <p>
+      <a class="button btnsmall btngreen pubsubmit" href="#ok">Submeter</a> <a class="button btnsmall btnred pubcancel" href="#cancel">Cancelar</a>
+      </p>
+    </div>
+    <div>
+      <div class="media">
+        <a href="./user.html" class="img">
+          <img class="avatar" alt="avatar" src="images/avatar.jpg">
+        </a>
+        <div class="bd">
+          <h4 class="name"><a href="./user.html">Steve Holt</a></h4>
+          <img class="imgExt" alt="avatar" src="images/bacon.png">
+          <p>Eu gosto de bacon e de tartarugas.</p>
+        </div>
+      </div>
+      <div class="media">
+        <a href="./friend.html" class="img">
+          <img class="avatar" alt="avatar" src="images/peralta.jpg">
+        </a>
+        <div class="bd">
+          <h4 class="name"><a href="./friend.html">Jake peralta</a></h4>
+          <img class="imgExt" alt="avatar" src="images/colegas.jpg">
+          <p>Esta é a minha equipa de trabalho, à minha esquerda temos a minha nova colega detective que acha que é melhor que eu, mas no entanto não resolve metade dos casos que eu resolvo. Depois temos o capitão que pensa que manda mas eu estou sempre a gozar com ele porque sou muito brincalhão</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
