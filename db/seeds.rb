@@ -43,7 +43,12 @@ end
 ##########
 # Contactos entre os empregados
 chicoid = Empregado.find_by(name: 'Francisco').id
-Contacto.create(empregado_id: chicoid, amigo_id: Empregado.find_by(name: 'Fanny').id, pendente: false)
-Contacto.create(empregado_id: chicoid, amigo_id: Empregado.find_by(name: 'Jennifer').id, pendente: false)
+fannyid = Empregado.find_by(name: 'Fanny').id
+jennyid = Empregado.find_by(name: 'Jennifer').id
+
+Contacto.create(empregado_id: chicoid, amigo_id: fannyid, pendente: false)
+Contacto.create(empregado_id: fannyid, amigo_id: chicoid, pendente: false)
+Contacto.create(empregado_id: jennyid, amigo_id: chicoid, pendente: false)
+Contacto.create(empregado_id: chicoid, amigo_id: jennyid, pendente: false)
 Contacto.create(empregado_id: chicoid, amigo_id: Empregado.find_by(name: 'Katy').id, pendente: true)
 
