@@ -2,39 +2,19 @@
   <div class="fullwidth">
     <div>
       <h2 class="title">Publicações</h2>
-      <a href="#new" class="newn button btnsmall">Nova publicação</a>
+      <%=link_to "Nova publicação", new_post_path, class: "newn button btnsmall"%>
     </div>
     <div>
       <% @posts.each do |p| %>
         <div class="media">
           <%= link_to image_tag("/images/avatar/#{p.empregado.image}.png", alt: "avatar", class: "avatar"), p.empregado, class: "img" %>
           <div class="bd">
-            <%= image_tag "/images/posts/#{p.image}", alt: "imagem", class: "imgExt"%>
             <h4 class="name"><%= link_to p.empregado.name, p.empregado%></h4>
+            <%= image_tag "/images/posts/#{p.image}", alt: "imagem", class: "imgExt"%>
             <p><%=p.text%></p>
           </div>
         </div>
       <% end %>
-      <div class="media">
-        <a href="./user.html" class="img">
-          <img class="avatar" alt="avatar" src="images/avatar.jpg">
-        </a>
-        <div class="bd">
-          <h4 class="name"><a href="./user.html">Steve Holt</a></h4>
-          <img class="imgExt" alt="avatar" src="images/bacon.png">
-          <p>Eu gosto de bacon e de tartarugas.</p>
-        </div>
-      </div>
-      <div class="media">
-        <a href="./friend.html" class="img">
-          <img class="avatar" alt="avatar" src="images/peralta.jpg">
-        </a>
-        <div class="bd">
-          <h4 class="name"><a href="./friend.html">Jake peralta</a></h4>
-          <img class="imgExt" alt="avatar" src="images/colegas.jpg">
-          <p>Esta é a minha equipa de trabalho, à minha esquerda temos a minha nova colega detective que acha que é melhor que eu, mas no entanto não resolve metade dos casos que eu resolvo. Depois temos o capitão que pensa que manda mas eu estou sempre a gozar com ele porque sou muito brincalhão</p>
-        </div>
-      </div>
     </div>
   </div>
 </div>

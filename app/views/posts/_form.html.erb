@@ -1,29 +1,15 @@
 <%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :empregado_id %><br>
-    <%= f.number_field :empregado_id %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
-  <div class="field">
+  <%= f.hidden_field :empregado_id %>
+  <%#Encontrar uma melhor forma de fazer o upload das imagens!!!%>
+  <!--<div class="field">
     <%= f.label :image %><br>
     <%= f.text_field :image %>
+  </div>-->
+  <div class="field">
+    <%= f.text_area :text %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submeter", class: "button btnsmall btngreen"%>
+    <%= link_to "Cancelar", root_path, class: "button btnsmall btnred" %>
   </div>
 <% end %>

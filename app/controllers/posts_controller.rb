@@ -14,7 +14,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @posts = Post.all
+    @post = Post.new({:empregado_id => current_empregado.id})
   end
 
   # GET /posts/1/edit
