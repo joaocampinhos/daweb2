@@ -11,7 +11,7 @@ Departamento.delete_all
 Empregado.delete_all
 
 empresas = [
-  {:name => "Gente Bonita", :spots => 1, :logo => logocompany.jpg, :departamentos => [
+  {:name => "Gente Bonita", :spots => 1, :logo => "logocompany.jpg", :departamentos => [
     {:name => "Beleza", :empregados => [
       {:name => "Francisco", :email => "a@gmail.com", :password => "12345678", :password_confirmation => "12345678", :image => 1, :location => "almada", :job => "gerente", :about => "nao sei bem se e isto que e pa fazer ou se ta bem feito"},
       {:name => "Fanny", :email => "b@gmail.com", :password => "12345678", :password_confirmation => "12345678", :image => 2, :location => "casa dos segredos", :job => "socialite", :about => "eu merecia ganhar a casa dos segredos"}
