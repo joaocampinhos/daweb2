@@ -28,10 +28,18 @@ class ContactosController < ApplicationController
       if c.pendente
         @porac.push(contacto)
         logger.debug "Pediram-me amizade e não aceitei"
-      
       end
     end
+  end
 
+  def aceitar
+    index
+    render "index"
+  end
+
+  def recusar
+    index
+    render "index"
   end
 
   # GET /contactos/1
@@ -89,13 +97,13 @@ class ContactosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_contacto
-      @contacto = Contacto.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_contacto
+    @contacto = Contacto.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def contacto_params
-      params[:contacto]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def contacto_params
+    params[:contacto]
+  end
 end

@@ -7,6 +7,8 @@ Letsgetpro::Application.routes.draw do
 
   resources :empresas
 
+  get "/contactos/aceitar" => "contactos#aceitar"
+  get "/contactos/recusar" => "contactos#recusar"
   resources :contactos
 
   get "search" => "search#index"

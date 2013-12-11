@@ -28,7 +28,7 @@ $(window).resize(function(){
 /*
  * Client Side contacts request handler
  */
-var check = $("<a><img></img></a>"),
+/*var check = $("<a><img></img></a>"),
     cross = $("<a><img></img></a>");
 
 check.attr("href","#approve").click(function(){
@@ -45,6 +45,7 @@ cross.attr("href","#remove").click(function(){
 $("img",check).attr("src","images/check.png");
 $("img",cross).attr("src","images/cross.png");
 $(".pending").append($("<p></p>").append(check).append(cross));
+*/
 
 /*
  * New publication 
