@@ -6,7 +6,10 @@
       </form>
     </div>
     <div class="pendingreq">
-      <h2 class="title">Pedidos Pendentes</h2>
+      <% if @porac.any? %>
+     <h2 class="title">Pedidos Pendentes</h2>
+      <% end %>
+     
       <% @pendentes.each do |a| %>
         <div class="contact pending">
           <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
