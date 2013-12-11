@@ -9,7 +9,7 @@
         <div class="media">
           <%= link_to image_tag("/images/avatar/#{p.empregado.image}.png", alt: "avatar", class: "avatar"), p.empregado, class: "img" %>
           <div class="bd">
-            <%= image_tag p.image, alt: "imagem", class: "imgExt"%>
+            <%= image_tag "/images/posts/#{p.image}", alt: "imagem", class: "imgExt"%>
             <h4 class="name"><%= link_to p.empregado.name, p.empregado%></h4>
             <p><%=p.text%></p>
           </div>
