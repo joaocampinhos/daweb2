@@ -28,12 +28,10 @@ class ContactosController < ApplicationController
       if c.pendente
         @porac.push(contacto)
         logger.debug "Pediram-me amizade e não aceitei"
-      else
-        @amigos.push(contacto)
-        logger.debug "Pediram-me amizade e já aceitei"
+      
       end
     end
-    @contactos = []
+
   end
 
   # GET /contactos/1
