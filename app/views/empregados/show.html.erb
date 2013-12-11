@@ -6,13 +6,20 @@
       </div>
       <div class="info">
         <h1 class="name"><%= @empregado.name %></h1>
-        <h3 class="job"><span class="jobedit"><%= @empregado.job %></span> na empresa <span class="compedit"><%= @empregado.departamento.empresa.name %></span></h3>
+        <h3 class="job"><span class="jobedit"><%= @empregado.job %></span> na empresa <span class="compedit"><%= link_to @empregado.departamento.empresa.name, @empregado.departamento.empresa %></span></h3>
         <p class="location"><span class="locationedit"><%= @empregado.location %></p>
-        <h3 class="friends"><a href="/contactos"><%= @empregado.contactos.count %> contactos</a></h3>
-        <!--Estamos a contar os pendentes!!!-->
+          <% if current_empregado.id == @empregado.id %>
+            <h3 class="friends"><a href="/contactos"><%= @empregado.contactos.where(:pendente => false).count %> contactos</a></h3>
+          <% else %>
+            <h3 class="friends"><%= @empregado.contactos.where(:pendente => false).count %> contactos</h3>
+          <% end %>
       </div>
       <% if current_empregado.id == @empregado.id %>
-        <div class="add"><a class="button edit" href="#">Editar Perfil</a></div>
+        <div class="add"><a class="button" href="#">Editar Perfil</a></div>
+            <% elsif @pendente %>
+        <div class="add"><a class="button" href="#">Pedido Pendente</a></div>
+      <% elsif @amigo %>
+        <div class="add"><a class="button btngreen" href="#">Já Está Adicionado</a></div>
       <% else %>
         <div class="add"><a class="button" href="#">Adicionar Contacto</a></div>
       <% end %>

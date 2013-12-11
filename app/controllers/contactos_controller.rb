@@ -33,13 +33,19 @@ class ContactosController < ApplicationController
   end
 
   def aceitar
-    index
-    render "index"
+    @contacto = Contacto.new({:empregado_id => current_empregado.id, :amigo_id => params[:amigoid], :pendente => false})
+    @up = Contacto.find_by({:empregado_id => params[:amigoid], :amigo_id => current_empregado.id})
+    @up.pendente = false
+    #Ver se isto dá erro
+    @up.save
+    @contacto.save
+    redirect_to contactos_url
   end
 
   def recusar
-    index
-    render "index"
+    @contacto = Contacto.find_by({:empregado_id => params[:amigoid], :amigo_id => current_empregado.id})
+    @contacto.destroy
+    redirect_to contactos_url
   end
 
   # GET /contactos/1

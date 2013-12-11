@@ -11,6 +11,17 @@ class EmpregadosController < ApplicationController
   # GET /empregados/1
   # GET /empregados/1.json
   def show
+    #Passar um booleano a ver se é amigo ou não
+    @amigo = false
+    @pendente = false
+    current_empregado.contactos.each do |a|
+      if a.amigo_id == @empregado.id
+        @amigo = true
+        if a.pendente
+          @pendente = true
+        end
+      end
+    end
   end
 
   # GET /empregados/new

@@ -14,10 +14,10 @@
           <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
           <p><%= link_to a.name , a %> <span><%= link_to a.email, "mailto:#{a.email}" %></span></p>
           <p>
-            <%= link_to image_tag("/images/check.png", alt: "aceitar"), :controller => "contactos", :action => "aceitar" %>
-            <%= link_to image_tag("/images/cross.png", alt: "recusar"), :controller => "contactos", :action => "recusar" %>
+          <%= link_to image_tag("/images/check.png", alt: "aceitar"), :controller => "contactos", :action => "aceitar", :amigoid => a.id %>
+          <%= link_to image_tag("/images/cross.png", alt: "recusar"), :controller => "contactos", :action => "recusar", :amigoid => a.id %>
           </p>
-          </div>
+        </div>
       <% end %>
     </div>
     <div class="confirmed">
