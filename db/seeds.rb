@@ -11,7 +11,7 @@ Departamento.delete_all
 Empregado.delete_all
 
 empresas = [
-  {:name => "Gente Bonita", :spots => 1, :logo => "company.jpg", :departamentos => [
+  {:name => "Gente Bonita", :spots => 1, :logo => "company.jpg", :description => "A agencia de Modelos gente bonita é o expoente maximo das agencias de imagem em Portugal, tem por objectivo projectar modelos para os mais famosos desfiles de moda e mais cobiçados anuncios publicitários. Temos os melhores profissionais na Area e apenas os mais bonitos conseguem um lugar nesta agencia de prestígio mundial", :departamentos => [
     {:name => "Beleza", :empregados => [
       {:name => "Francisco", :email => "a@gmail.com", :password => "12345678", :password_confirmation => "12345678", :image => 1, :location => "almada", :job => "gerente", :about => "nao sei bem se e isto que e pa fazer ou se ta bem feito"},
       {:name => "Fanny", :email => "b@gmail.com", :password => "12345678", :password_confirmation => "12345678", :image => 2, :location => "casa dos segredos", :job => "socialite", :about => "eu merecia ganhar a casa dos segredos"}
@@ -21,7 +21,7 @@ empresas = [
       {:name => "Katy", :email => "d@gmail.com", :password => "12345678", :password_confirmation => "12345678", :image => 4, :location => "casa do campinhos", :job => "modelo"}
     ]}
   ]},
-  {:name => "MicroCenas", :spots => 3,  :departamentos => [
+  {:name => "MicroCenas", :spots => 3, :description => "esta empresa é uma empresa de renome na area de todas as cenas que dao micro, e por isso afirmamos ser os microlideres",  :departamentos => [
     {:name => "Canalização", :empregados => [
       {:name => "Manel", :email => "e@gmail.com", :password => "12345678", :password_confirmation => "12345678", :image => 5, :location => "usa", :job =>"canalizador", :about => "estou farto de ser canalizador, vou tentar um emprego na empresa gente bonita"}
     ]}
@@ -31,7 +31,7 @@ empresas = [
 ##########
 # Empresas, departamentos e empregados
 empresas.each do |e|
-  e_obj = Empresa.create(name: e[:name], spots: e[:spots], logo: e[:logo])
+  e_obj = Empresa.create(name: e[:name], spots: e[:spots], logo: e[:logo], description: e[:description])
   e[:departamentos].each do |d|
     d_obj = Departamento.create(name: d[:name], empresa_id: e_obj.id)
     d[:empregados].each do |emp|
