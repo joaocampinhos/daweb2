@@ -1,6 +1,33 @@
-<h1>Editing empregado</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @empregado %> |
-<%= link_to 'Back', empregados_path %>
+<%= form_for(@empregado) do |f| %>
+<div class="container">
+  <div class="fullwidth">
+    <div class="profile">
+      <div class="profilebig">
+        <img src="/images/avatar/<%= @empregado.image %>.png" alt="avatar">
+      </div>
+      <div class="info">
+        <h1 class="name"><%= f.text_field :name %></h1>
+        <h3 class="job"><span class="jobedit"><%= f.text_field :job %></span> na empresa <span class="compedit"><%= link_to @empregado.departamento.empresa.name, @empregado.departamento.empresa %><%= f.select(:departamento_id, Departamento.all.collect {|d| [d.name, d.id]}) %> </span></h3>
+        <p class="location"><span class="locationedit"><%= f.text_field :location %></p>
+      </div>
+      <div class="add">
+        <%=f.submit "Confirmar", :class => "button btngreen"%>
+      </div>
+    </div>
+    <div class="about">
+      <h2 class="title">Sobre mim</h2>
+      <%= f.text_area :about %>
+    </div>
+    <div>
+      <h2 class="title">Curriculum Vitæ</h2>
+      <br>
+      <h3 class="title left">Experiência Profissional</h3>
+      <p class="cv"></p>
+      <h3 class="title left">Formação Académica</h3>
+      <p class="cv"></p>
+      <h3 class="title left">Competências</h3>
+      <p class="cv"></p>
+    </div>
+  </div>
+</div>
+<% end %>

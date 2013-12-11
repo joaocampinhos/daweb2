@@ -31,6 +31,9 @@ class EmpregadosController < ApplicationController
 
   # GET /empregados/1/edit
   def edit
+    if @empregado.id != current_empregado.id
+      redirect_to root_path
+    end
   end
 
   # POST /empregados
@@ -52,6 +55,7 @@ class EmpregadosController < ApplicationController
   # PATCH/PUT /empregados/1
   # PATCH/PUT /empregados/1.json
   def update
+    logger.debug ("não?")
     respond_to do |format|
       if @empregado.update(empregado_params)
         format.html { redirect_to @empregado, notice: 'Empregado was successfully updated.' }

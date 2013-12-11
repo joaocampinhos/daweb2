@@ -55,7 +55,8 @@ class ContactosController < ApplicationController
 
   # GET /contactos/new
   def new
-    @contacto = Contacto.new
+    @contacto = Contacto.create({:empregado_id => current_empregado.id, :amigo_id => params[:amigoid], :pendente => true})
+    redirect_to empregado_path(Empregado.find(params[:amigoid]))
   end
 
   # GET /contactos/1/edit

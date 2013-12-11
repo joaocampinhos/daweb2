@@ -15,13 +15,13 @@
           <% end %>
       </div>
       <% if current_empregado.id == @empregado.id %>
-        <div class="add"><a class="button" href="#">Editar Perfil</a></div>
+        <div class="add"><%= link_to "Editar Perfil", edit_empregado_path(@empregado), class: "button"%></div>
             <% elsif @pendente %>
-        <div class="add"><a class="button" href="#">Pedido Pendente</a></div>
+        <div class="add"><span class="button">Pedido Pendente</span></div>
       <% elsif @amigo %>
-        <div class="add"><a class="button btngreen" href="#">Já Está Adicionado</a></div>
+        <div class="add"><span class="button btngreen">Já Está Adicionado</span></div>
       <% else %>
-        <div class="add"><a class="button" href="#">Adicionar Contacto</a></div>
+        <div class="add"><%= link_to("Adicionar Contacto", {:controller => "contactos", :action => "new", :amigoid => @empregado.id}, {:class => "button"}) %></div>
       <% end %>
     </div>
     <div class="about">
