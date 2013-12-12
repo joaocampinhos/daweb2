@@ -32,7 +32,7 @@ empresas = [
 ##########
 # Empresas, departamentos e empregados
 empresas.each do |e|
-  e_obj = Empresa.create(name: e[:name], spots: e[:spots], logo: e[:logo], description: e[:description])
+  e_obj = Empresa.create(name: e[:name], spots: e[:spots], logo: e[:logo], description: e[:description], owner_id: e[:owner_id])
   e[:departamentos].each do |d|
     d_obj = Departamento.create(name: d[:name], empresa_id: e_obj.id)
     d[:empregados].each do |emp|

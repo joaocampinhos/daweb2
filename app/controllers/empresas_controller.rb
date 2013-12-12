@@ -10,6 +10,13 @@ class EmpresasController < ApplicationController
   # GET /empresas/1
   # GET /empresas/1.json
   def show
+    @owner = false
+    if  @empresa.owner_id = current_empregado.id
+      @owner = true
+    
+    end
+   
+
   end
 
   # GET /empresas/new
