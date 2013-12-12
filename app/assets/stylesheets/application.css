@@ -55,10 +55,11 @@ header {
 }
 
 footer {
-  margin-top: 30px;
-  padding: 10px;
+  margin: 30px auto 0 auto;
+  padding: 10px 0;
   text-align: center;
   background-color: white;
+  max-width: 1200px;
 }
 footer a {
   color: #006699;
@@ -69,7 +70,7 @@ footer a {
 
 /*---------------------*\
  * HEADER
-\*---------------------*/
+ \*---------------------*/
 .togglemenu {
   display: none;
 }
@@ -166,7 +167,7 @@ input[type="search"].search.top {
 }
 /*---------------------*\
  * Main Content
-\*---------------------*/
+ \*---------------------*/
 .title {
   text-align: center;
   color: #9aa7af;
@@ -496,8 +497,8 @@ input[type="search"]:focus {
   }
 
   input[type="search"].search.top {
-  width: 100%;
-}
+    width: 100%;
+  }
 
   header {
     height: auto;
@@ -553,6 +554,10 @@ input[type="search"]:focus {
 
   .metade {
     width: 100%;
+  }
+
+  footer {
+    margin: 30px 20px 0 20px;
   }
 }
 .center {text-align: center;}
