@@ -13,30 +13,49 @@
           <% else %>
             <h3 class="friends"><%= @empregado.contactos.where(:pendente => false).count %> contactos</h3>
           <% end %>
+        </div>
+        <% if current_empregado.id == @empregado.id %>
+          <div class="add"><%= link_to "Editar Perfil", edit_empregado_path(@empregado), class: "button"%></div>
+        <% elsif @pendente %>
+          <div class="add"><span class="button">Pedido Pendente</span></div>
+        <% elsif @amigo %>
+          <div class="add"><span class="button btngreen">Já Está Adicionado</span></div>
+        <% else %>
+          <div class="add"><%= link_to("Adicionar Contacto", {:controller => "contactos", :action => "new", :amigoid => @empregado.id}, {:class => "button"}) %></div>
+        <% end %>
       </div>
-      <% if current_empregado.id == @empregado.id %>
-        <div class="add"><%= link_to "Editar Perfil", edit_empregado_path(@empregado), class: "button"%></div>
-            <% elsif @pendente %>
-        <div class="add"><span class="button">Pedido Pendente</span></div>
-      <% elsif @amigo %>
-        <div class="add"><span class="button btngreen">Já Está Adicionado</span></div>
-      <% else %>
-        <div class="add"><%= link_to("Adicionar Contacto", {:controller => "contactos", :action => "new", :amigoid => @empregado.id}, {:class => "button"}) %></div>
-      <% end %>
+      <div class="about">
+        <h2 class="title">Sobre mim</h2>
+        <p class="location"><span class="locationedit"><%= @empregado.about %></p>
+        </div>
+        <div>
+          <br>
+          <% if @empregado.cv.exp %>
+            <h3 class="title left">Experiência Profissional</h3>
+            <ul>
+              <% @empregado.cv.exp.each do |e| %>
+                <li class="cv"><%=e%></li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <% if @empregado.cv.academic %>
+            <h3 class="title left">Formação Académica</h3>
+            <ul>
+              <% @empregado.cv.academic.each do |e| %>
+                <li class="cv"><%=e%></li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <% if @empregado.cv.skills %>
+            <h3 class="title left">Competências</h3>
+            <ul>
+              <% @empregado.cv.skills.each do |e| %>
+                <li class="cv"><%=e%></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="about">
-      <h2 class="title">Sobre mim</h2>
-       <p class="location"><span class="locationedit"><%= @empregado.about %></p>
-    </div>
-    <div>
-      <h2 class="title"><%=debug  @empregado.cv%></h2>
-      <br>
-      <h3 class="title left">Experiência Profissional</h3>
-      <p class="cv"></p>
-      <h3 class="title left">Formação Académica</h3>
-      <p class="cv"></p>
-      <h3 class="title left">Competências</h3>
-      <p class="cv"></p>
-    </div>
-  </div>
-</div>

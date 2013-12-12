@@ -8,6 +8,5 @@ class Empregado < ActiveRecord::Base
   has_many :amigos, :through => :contactos
   has_many :posts
   belongs_to :departamento
- has_one :cv
-	
+  has_one :cv
 end

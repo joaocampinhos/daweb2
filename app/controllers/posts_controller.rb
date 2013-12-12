@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.reverse
+    if current_empregado.name
+      @posts = Post.all.reverse
+    else
+      redirect_to new_empregado_path
+    end
   end
 
   # GET /posts/1
