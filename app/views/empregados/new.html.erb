@@ -1,5 +1,44 @@
-<h1>New empregado</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Let's Get Pro</title>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
+<style>
+body {
+  margin-top: 30px;
+}
+form {
+  box-sizing: border-box;
+  padding: 0 100px;
+  width: 100%;
+}
+.forminput {
+  width: 100%;
+  display: block;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.428571429;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="fullwidth">
+    <%=debug @empregado%>
+    <h1>New empregado</h1>
 
-<%= render 'form' %>
+    <%= render 'form' %>
 
-<%= link_to 'Back', empregados_path %>
+    <%= link_to 'Back', empregados_path %>
+  </div>
+</div>
+</body>

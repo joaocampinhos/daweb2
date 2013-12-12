@@ -1,16 +1,4 @@
 <%= form_for(@empregado) do |f| %>
-  <% if @empregado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@empregado.errors.count, "error") %> prohibited this empregado from being saved:</h2>
-
-      <ul>
-      <% @empregado.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -25,7 +13,7 @@
    </div>
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.number_field :location %>
+    <%= f.text_field :location %>
 
    </div>
 <% end %>

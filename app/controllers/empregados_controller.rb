@@ -22,11 +22,13 @@ class EmpregadosController < ApplicationController
         end
       end
     end
+    @namigos =@empregado.contactos.where(:pendente => false).count
   end
 
   # GET /empregados/new
   def new
-    @empregado = Empregado.new
+    @empregado = Empregado.find(current_empregado.id)
+    render :layout => false
   end
 
   # GET /empregados/1/edit

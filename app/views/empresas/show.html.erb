@@ -8,9 +8,10 @@
         <h1 class="name"><%= @empresa.name %></h1>
         <p class="location">Lisboa, Portugal</p>
         <h3 class="friends"><%= @empresa.empregados.count %> Funcionarios</h3>
-        
       </div>
-      <div class="add"><a class="button" href="#"><%=@owner%></a></div>
+      <%if @owner %>
+        <div class="add"><%=link_to "Editar Empresa", edit_empresa_path(@empresa), class: "button" %></div>
+      <% end %>
     </div>
     <div class="about">
       <h2 class="title">Descrição da empresa</h2>
@@ -26,7 +27,7 @@
             <div class="contact">
               <%= link_to image_tag("/images/avatar/#{emp.image}.png", alt: emp.name), emp %>
               <p><%= link_to emp.name, emp %> <span><%= link_to emp.email, "mailto:#{emp.email}" %></span></p>
-            </div> 
+            </div>
           <% end %>
         <% end %>
         <div>

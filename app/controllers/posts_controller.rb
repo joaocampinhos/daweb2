@@ -29,8 +29,12 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    if params[:post][:location]
+      File.open("public/images/posts/#{params[:post][:location].original_filename}", "wb") { |f| f.write(params[:post][:location].read) }
+      path = params[:post][:location].original_filename
+    end
     @post = Post.new(post_params)
-
+    @post.image = path
     respond_to do |format|
       if @post.save
         format.html { redirect_to posts_url, notice: 'Post was successfully created.' }

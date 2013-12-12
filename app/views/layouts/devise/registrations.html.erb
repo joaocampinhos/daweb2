@@ -1,22 +1,54 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>Let's Get Pro</title>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
+<style>
+body {
+  margin-top: 30px;
+}
+form {
+  box-sizing: border-box;
+  padding: 0 100px;
+  width: 100%;
+}
+.forminput {
+  width: 100%;
+  display: block;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.428571429;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="fullwidth">
+    <h1 class="title center">Registar</h2>
+    <br />
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <br />
+      <div>
+        <%= f.email_field :email, :autofocus => true , :class => "forminput", :placeholder => "email"%></div>
+      <br />
+      <div>
+        <%= f.password_field :password, :class => "forminput", :placeholder => "password"%></div>
+      <br />
+      <div>
+        <%= f.password_field :password_confirmation, :class => "forminput", :placeholder => "confirmar password" %></div>
+      <br />
+      <div><%= f.submit "Registar", class: "button btngreen" %></div>
+    <% end %>
+  </div>
+</div>
+</body>
+</html>

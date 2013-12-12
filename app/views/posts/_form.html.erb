@@ -1,13 +1,10 @@
 <%= form_for(@post) do |f| %>
   <%= f.hidden_field :empregado_id %>
-  <%#Encontrar uma melhor forma de fazer o upload das imagens!!!%>
-  <!--<div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
-  </div>-->
   <div class="field">
     <%= f.text_area :text %>
+    Imagem: <%= f.file_field :location %>
   </div>
+  <br />
   <div class="actions">
     <%= f.submit "Submeter", class: "button btnsmall btngreen"%>
     <%= link_to "Cancelar", root_path, class: "button btnsmall btnred" %>

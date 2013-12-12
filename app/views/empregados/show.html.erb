@@ -11,7 +11,7 @@
           <% if current_empregado.id == @empregado.id %>
             <h3 class="friends"><a href="/contactos"><%= @empregado.contactos.where(:pendente => false).count %> contactos</a></h3>
           <% else %>
-            <h3 class="friends"><%= @empregado.contactos.where(:pendente => false).count %> contactos</h3>
+            <h3 class="friends"><%= @namigos %> contactos</h3>
           <% end %>
         </div>
         <% if current_empregado.id == @empregado.id %>
