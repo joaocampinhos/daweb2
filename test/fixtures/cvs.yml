@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  empregado_id: 1
+  exp: MyText
+  academic: MyText
+  skills: MyText
+
+two:
+  empregado_id: 1
+  exp: MyText
+  academic: MyText
+  skills: MyText

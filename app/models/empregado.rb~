@@ -6,5 +6,7 @@ class Empregado < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :contactos
   has_many :amigos, :through => :contactos
+  has_many :posts
   belongs_to :departamento
+	
 end

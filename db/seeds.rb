@@ -55,3 +55,5 @@ Contacto.create(empregado_id: chicoid, amigo_id: Empregado.find_by(name: 'Katy')
 
 Post.create(empregado_id: fannyid, text:"havia quem dissese que eu nao era uma princesa mas depois do que mostrei na casa dos segredos nao restam duvidas", image: "casadossegredos.jpg")
 
+Cv.create(empregado_id: chicoid, exp:["lal" ,"al al"], academic: ["escola dos campeoes", "fct"], skills: ["maquina", "bom em tudo","pontual"])
+

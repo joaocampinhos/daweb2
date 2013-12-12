@@ -9,6 +9,7 @@
 Empresa.delete_all
 Departamento.delete_all
 Empregado.delete_all
+Post.delete_all
 
 empresas = [
   {:name => "Gente Bonita", :spots => 1, :logo => "company.jpg", :description => "A agencia de Modelos gente bonita é o expoente maximo das agencias de imagem em Portugal, tem por objectivo projectar modelos para os mais famosos desfiles de moda e mais cobiçados anuncios publicitários. Temos os melhores profissionais na Area e apenas os mais bonitos conseguem um lugar nesta agencia de prestígio mundial", :departamentos => [
@@ -35,7 +36,7 @@ empresas.each do |e|
   e[:departamentos].each do |d|
     d_obj = Departamento.create(name: d[:name], empresa_id: e_obj.id)
     d[:empregados].each do |emp|
-      Empregado.create(name: emp[:name], email: emp[:email], password: emp[:password], password_confirmation: emp[:password_confirmation], departamento_id: d_obj.id, image: emp[:image], location: emp[:location], job: emp[:job], about: emp[:about], post: emp[:post])
+      Empregado.create(name: emp[:name], email: emp[:email], password: emp[:password], password_confirmation: emp[:password_confirmation], departamento_id: d_obj.id, image: emp[:image], location: emp[:location], job: emp[:job], about: emp[:about])
     end
   end
 end
@@ -51,5 +52,8 @@ Contacto.create(empregado_id: fannyid, amigo_id: chicoid, pendente: false)
 Contacto.create(empregado_id: jennyid, amigo_id: chicoid, pendente: false)
 Contacto.create(empregado_id: chicoid, amigo_id: jennyid, pendente: false)
 Contacto.create(empregado_id: chicoid, amigo_id: Empregado.find_by(name: 'Katy').id, pendente: true)
-posts.create(empregado_id: fannyid, text:"havia quem dissese que eu nao era uma princesa mas depois do que mostrei na casa dos segredos nao restam duvidas", image: "1")
+
+Post.create(empregado_id: fannyid, text:"havia quem dissese que eu nao era uma princesa mas depois do que mostrei na casa dos segredos nao restam duvidas", image: "casadossegredos.jpg")
+
+Cv.create(empregado_id: chicoid, exp:"lal" ,"al al", academic: "escola dos campeoes", "fct", skills: "maquina", "bom em tudo","pontual")
 
