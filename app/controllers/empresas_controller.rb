@@ -18,7 +18,7 @@ class EmpresasController < ApplicationController
 
   # GET /empresas/new
   def new
-    @empresa = Empresa.new
+    @empresa = Empresa.new(:owner_id => current_empregado.id)
   end
 
   # GET /empresas/1/edit
@@ -73,6 +73,6 @@ class EmpresasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def empresa_params
-      params.require(:empresa).permit(:name)
+      params.require(:empresa).permit(:name, :owner_id)
     end
 end

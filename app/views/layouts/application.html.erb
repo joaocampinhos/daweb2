@@ -30,6 +30,7 @@
       <a class="login" href="#"><img class="avatar fleft" alt="avatar" src="/images/avatar/<%= current_empregado.image %>.png"><span>▾</span></a>
       <div class="submenu">
         <ul>
+          <li><%= link_to "Criar Empresa", new_empresa_path %></li>
           <li><%= link_to "Sair", destroy_empregado_session_path, :method => :delete %></li>
         </ul>
       </div>
@@ -42,7 +43,7 @@
   </div>
 </header>
 <%= yield %>
-<footer> Página criada no âmbito da cadeira <a href="http://ctp.di.fct.unl.pt/lei/daweb/">DAWeb</a>. <a href="./about.html">Sobre os autores</a>
+<footer> Página criada no âmbito da cadeira <a href="http://ctp.di.fct.unl.pt/lei/daweb/">DAWeb</a>. <a href="/about">Sobre os autores</a>
 </footer>
 </body>
 </html>
