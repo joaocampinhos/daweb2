@@ -18,7 +18,12 @@ class EmpresasController < ApplicationController
 
   # GET /empresas/new
   def new
-    @empresa = Empresa.new(:owner_id => current_empregado.id)
+    comp = Empresa.find_by(:owner_id => current_empregado.id)
+    if comp
+      redirect_to comp
+    else
+      @empresa = Empresa.new(:owner_id => current_empregado.id)
+    end
   end
 
   # GET /empresas/1/edit
