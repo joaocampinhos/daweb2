@@ -23,9 +23,16 @@
         <% @empresa.departamentos.each do |dep| %>
           <h3 class="title">Departamento de <%= dep.name %></h3>
           <% dep.empregados.each do |emp| %>
-            <div class="contact">
+            <% if (!@owner || emp.id==current_empregado.id) %>
+              <div class="contact">
               <%= link_to image_tag("/images/avatar/#{emp.image}.png", alt: emp.name), emp %>
               <p><%= link_to emp.name, emp %> <span><%= link_to emp.email, "mailto:#{emp.email}" %></span></p>
+            <% else %>
+              <div class="contact pending">
+              <%= link_to image_tag("/images/avatar/#{emp.image}.png", alt: emp.name), emp %>
+              <p><%= link_to emp.name, emp %> <span><%= link_to emp.email, "mailto:#{emp.email}" %></span></p>
+              <%= button_to "Despedir", {:controller => :empresas, :action => :despedir, :emp_id => emp.id}, {:method => "post", :class => "button btnsmall ajeitar"} %>
+            <% end %>
             </div>
           <% end %>
         <% end %>

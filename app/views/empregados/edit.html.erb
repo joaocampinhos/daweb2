@@ -8,6 +8,10 @@
         <div class="info">
           <p class="name">Nome: <%= f.text_field :name %></p>
           <p class="job">Cargo: <span class="jobedit"><%= f.text_field :job %></p>
+            <% if @empregado.departamento.respond_to? :empresa%>
+            <p class="job">Departamento:<%= f.select(:departamento_id, Departamento.where(:empresa_id => current_empregado.departamento.empresa.id).collect {|b| [b.name, b.id]}, {include_blank: "Sair da Empresa"})
+            %></p>
+          <%end%>
             <p class="location">Localização: <%= f.text_field :location %></p>
           </div>
           <div class="add">
@@ -19,55 +23,32 @@
           <%= f.text_area :about %>
         </div>
         <div>
-
+          <br>
           <h2 class="title">Curriculum Vitæ</h2>
           <br>
-       
         </div>
         <div>
           <br>
-    
           <% if @empregado.cv.respond_to? :exp%>
             <h3 class="title left">Experiência Profissional</h3>
-              <%= f.fields_for :cv do |cv_fields| %>
-          editar: <%= cv_fields.text_area :exp %>
+            <%= f.fields_for :cv do |cv_fields| %>
+              <%= cv_fields.text_area :exp, value: @empregado.cv.exp.join("\n")%>
+            <% end %>
           <%end%>
-            <ul>
-              <% @empregado.cv.exp.each do |e| %>
-                <li class="cv"><%=e%></li>
-              <% end %>
-
-
-
-            </ul>
-          <% end %>
           <% if @empregado.cv.respond_to? :academic%>
             <h3 class="title left">Formação Académica</h3>
-               <%= f.fields_for :cv do |cv_fields| %>
-          editar: <%= cv_fields.text_field :academic %>  
-          <% end %>           
-            <ul>
-              <% @empregado.cv.academic.each do |e| %>
-                <li class="cv"><%=e%></li>
-              <% end %>
-
-
-            </ul>
-          <% end %>
-          <% if @empregado.cv.respond_to? :skills%>          
-            <h3 class="title left">Competências</h3>  
             <%= f.fields_for :cv do |cv_fields| %>
-          editar: <%= cv_fields.text_field :skills %>  
-            <%end%>   
-            <ul>
-              <% @empregado.cv.skills.each do |e| %>
-                <li class="cv"><%=e%></li>              
-              <% end %>
-
-            </ul>
-          <%end%>
-        </div>
-      </div>
+              editar: <%= cv_fields.text_area :academic, value: @empregado.cv.academic.join("\n")%>
+          <% end %>
+        <% end %>
+        <% if @empregado.cv.respond_to? :skills%>
+          <h3 class="title left">Competências</h3>
+          <%= f.fields_for :cv do |cv_fields| %>
+            editar: <%= cv_fields.text_area :skills, value: @empregado.cv.skills.join("\n")%>
+        <%end%>
+      <%end%>
     </div>
+  </div>
+</div>
   <% end %>
-  
+

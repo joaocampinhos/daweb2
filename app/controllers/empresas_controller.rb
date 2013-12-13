@@ -39,11 +39,18 @@ class EmpresasController < ApplicationController
       did = did.id
     end
     user = Empregado.find(params[:emp_id])
-    logger.debug "#############################"
-    logger.debug user.name
     user.departamento_id = did
     user.save
     redirect_to contactos_path
+  end
+
+  def despedir
+    user = Empregado.find(params[:emp_id])
+    user.departamento_id = nil
+    #user.save
+    emp = Empresa.find_by(:owner_id => current_empregado.id)
+    logger.debug emp
+    redirect_to empresa_path Empresa.find_by(:owner_id => current_empregado.id)
   end
 
   # POST /empresas
