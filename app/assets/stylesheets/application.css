@@ -291,7 +291,6 @@ input[type="search"].search.top {
 }
 
 .disabled {
-  pointer-events: none;
   cursor: default;
 }
 
