@@ -30,7 +30,7 @@
           <% if @empregado.cv.respond_to? :exp%>
             <h3 class="title left">Experiência Profissional</h3>
               <%= f.fields_for :cv do |cv_fields| %>
-          editar: <%= cv_fields.text_area :exp %>
+          editar: <%= cv_fields.each.text_area :exp %>
           <%end%>
             <ul>
               <% @empregado.cv.exp.each do |e| %>

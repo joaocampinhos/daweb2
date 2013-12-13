@@ -13,7 +13,7 @@ Post.delete_all
 Cv.delete_all
 
 empresas = [
-  {:name => "Gente Bonita",  :logo => "company.jpg", :description => "A agencia de Modelos gente bonita é o expoente maximo das agencias de imagem em Portugal, tem por objectivo projectar modelos para os mais famosos desfiles de moda e mais cobiçados anuncios publicitários. Temos os melhores profissionais na Area e apenas os mais bonitos conseguem um lugar nesta agencia de prestígio mundial", :departamentos => [
+  {:name => "Gente Bonita",  :logo => "company.jpg", :description => "A agencia de Modelos gente bonita é o expoente maximo das agencias de imagem em Portugal, tem por objectivo projectar modelos para os mais famosos desfiles de moda e mais cobiçados anuncios publicitários. Temos os melhores profissionais na Area e apenas os mais bonitos conseguem um lugar nesta agencia de prestígio mundial", :exemp_id =>  [], :departamentos => [
     {:name => "Beleza", :empregados => [
       {:name => "Francisco", :email => "a@gmail.com", :password => "12345678", :password_confirmation => "12345678", :image => 1, :location => "almada", :job => "gerente", :about => "nao sei bem se e isto que e pa fazer ou se ta bem feito", :owner => true},
       {:name => "Fanny", :email => "b@gmail.com", :password => "12345678", :password_confirmation => "12345678", :image => 2, :location => "casa dos segredos", :job => "socialite", :about => "eu merecia ganhar a casa dos segredos"}
@@ -33,7 +33,7 @@ empresas = [
 ##########
 # Empresas, departamentos e empregados
 empresas.each do |e|
-  e_obj = Empresa.create(name: e[:name],  logo: e[:logo], description: e[:description])
+  e_obj = Empresa.create(name: e[:name],  logo: e[:logo], description: e[:description], exemp_id: e[:exemp_id])
   e[:departamentos].each do |d|
     d_obj = Departamento.create(name: d[:name], empresa_id: e_obj.id)
     d[:empregados].each do |emp|
@@ -65,4 +65,5 @@ Contacto.create(empregado_id: chicoid, amigo_id: Empregado.find_by(name: 'Katy')
 Post.create(empregado_id: fannyid, text:"havia quem dissese que eu nao era uma princesa mas depois do que mostrei na casa dos segredos nao restam duvidas", image: "casadossegredos.jpg")
 
 Cv.create(empregado_id: chicoid, exp:["lal" ,"al al"], academic: ["escola dos campeoes", "fct"], skills: ["maquina", "bom em tudo","pontual"])
+
 
