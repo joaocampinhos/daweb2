@@ -25,11 +25,33 @@
         <h2 class="title">Contactos</h2>
       <% end %>
       <% @amigos.each do |a| %>
-        <div class="contact">
-          <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
-          <p><%= link_to a.name , a %> <span><%= link_to a.email, "mailto:#{a.email}" %></span></p>
-        </div>
-      <% end %>
+        <%naemp=false%>
+        <%if a.departamento.respond_to? :empresa%>
+          <%
+              if a.departamento.empresa.id == @dono
+                naemp=true
+          end
+        %>
+    <%end%>
+    <% if !@dono 
+
+         naemp = true 
+    end %>
+  <% if naemp%>
+    <div class="contact">
+      <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
+      <p><%= link_to a.name , a %> <span><%= link_to a.email, "mailto:#{a.email}" %></span></p>
+    </div>
+  <%else%>
+    <div class="contact pending">
+      <%= link_to image_tag("/images/avatar/#{a.image}.png", alt: a.name), a %>
+      <p><%= link_to a.name , a %> <span><%= link_to a.email, "mailto:#{a.email}" %></span></p>
+      <p>
+      <%= button_to "Contratar", {:controller => :empresas, :action => :recrutar, :emp_id => a.id}, {:method => "post", :class => "button btnsmall ajeitar"} %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
     </div>
   </div>
 </div>

@@ -7,6 +7,7 @@ Letsgetpro::Application.routes.draw do
 
   resources :departamentos
 
+  post "/empresas/recrutar/" => "empresas#recrutar"
   resources :empresas
 
   get "/contactos/aceitar" => "contactos#aceitar"

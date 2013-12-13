@@ -19,7 +19,7 @@ form {
 <body>
 <div class="container">
   <div class="fullwidth">
-    <h1 class="title center">Sign in</h2>
+    <h1 class="title center">Let's Get Pro - Sign in</h2>
     <br />
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <div>
@@ -29,7 +29,7 @@ form {
       <div>
         <%= f.password_field :password, :class => "forminput", :placeholder => "Password" %></div>
       <br />
-      <div><%= f.submit "Sign in", class: "button btngreen" %></div>
+      <div><%= f.submit "Sign in", class: "button btngreen" %> <%= link_to "Registar", new_empregado_registration_path, class: "button"%></div>
     <% end %>
   </div>
 </div>

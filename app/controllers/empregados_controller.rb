@@ -57,7 +57,7 @@ class EmpregadosController < ApplicationController
   # PATCH/PUT /empregados/1
   # PATCH/PUT /empregados/1.json
   def update
-    logger.debug ("não?")
+    Cv.create(:empregado_id => current_empregado.id)
     respond_to do |format|
       if @empregado.update(empregado_params)
         format.html { redirect_to @empregado, notice: 'Empregado was successfully updated.' }

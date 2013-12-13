@@ -30,6 +30,12 @@ class ContactosController < ApplicationController
         logger.debug "Pediram-me amizade e não aceitei"
       end
     end
+    donoemp = Empresa.find_by(:owner_id => current_empregado.id)
+    if donoemp
+      @dono = donoemp.id
+    else
+      @dono = false
+    end
   end
 
   def aceitar

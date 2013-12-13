@@ -10,6 +10,7 @@ Empresa.delete_all
 Departamento.delete_all
 Empregado.delete_all
 Post.delete_all
+Cv.delete_all
 
 empresas = [
   {:name => "Gente Bonita",  :logo => "company.jpg", :description => "A agencia de Modelos gente bonita é o expoente maximo das agencias de imagem em Portugal, tem por objectivo projectar modelos para os mais famosos desfiles de moda e mais cobiçados anuncios publicitários. Temos os melhores profissionais na Area e apenas os mais bonitos conseguem um lugar nesta agencia de prestígio mundial", :departamentos => [

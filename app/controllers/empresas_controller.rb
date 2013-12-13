@@ -30,6 +30,22 @@ class EmpresasController < ApplicationController
   def edit
   end
 
+  def recrutar
+    eid = Empresa.find_by(:owner_id => current_empregado.id).id
+    did = Departamento.find_by(:empresa_id => eid, :name => "Novos Funcionários")
+    if !did
+      did = Departamento.create(:empresa_id => eid, :name => "Novos Funcionários").id
+    else
+      did = did.id
+    end
+    user = Empregado.find(params[:emp_id])
+    logger.debug "#############################"
+    logger.debug user.name
+    user.departamento_id = did
+    user.save
+    redirect_to contactos_path
+  end
+
   # POST /empresas
   # POST /empresas.json
   def create

@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    render :layout => false
+    redirect_to new_empregado_session_path
   end
   def timeline
   end
