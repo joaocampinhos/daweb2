@@ -1,4 +1,5 @@
 class EmpresasController < ApplicationController
+  before_filter :authenticate_empregado!
   before_action :set_empresa, only: [:show, :edit, :update, :destroy]
 
   # GET /empresas
@@ -47,7 +48,7 @@ class EmpresasController < ApplicationController
   def despedir
     user = Empregado.find(params[:emp_id])
     user.departamento_id = nil
-    #user.save
+    user.save
     emp = Empresa.find_by(:owner_id => current_empregado.id)
     logger.debug emp
     redirect_to empresa_path Empresa.find_by(:owner_id => current_empregado.id)

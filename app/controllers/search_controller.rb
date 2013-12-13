@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  before_filter :authenticate_empregado!
   def index
     #Pesquisa
     #Retirar argumentos do URL, pesquisar e "mandar" para a view

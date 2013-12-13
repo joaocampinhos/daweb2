@@ -6,7 +6,6 @@
           <img src="/images/logos/<%=@empresa.logo%>" alt="logo">
         </div>
         <div class="info">
-          <%= f.hidden_field :logo, :value => "company_placeholder.png" %>
           <%= f.hidden_field :owner_id, :value => current_empregado.id %>
           <%= f.text_field :name, :class => "forminput", :placeholder => "Nome" %>
           <h3 class="friends"><%= @empresa.empregados.count %> Funcionarios</h3>

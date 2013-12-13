@@ -24,7 +24,7 @@
         </div>
         <div>
           <br>
-          <h2 class="title">Curriculum Vitæ</h2>
+          <h2 class="title bot">Curriculum Vitæ</h2>
           <br>
         </div>
         <div>
@@ -35,16 +35,18 @@
               <%= cv_fields.text_area :exp, value: @empregado.cv.exp.join("\n")%>
             <% end %>
           <%end%>
+          <br />
           <% if @empregado.cv.respond_to? :academic%>
-            <h3 class="title left">Formação Académica</h3>
+            <h3 class="title left bot">Formação Académica</h3>
             <%= f.fields_for :cv do |cv_fields| %>
-              editar: <%= cv_fields.text_area :academic, value: @empregado.cv.academic.join("\n")%>
+              <%= cv_fields.text_area :academic, value: @empregado.cv.academic.join("\n")%>
           <% end %>
         <% end %>
+        <br />
         <% if @empregado.cv.respond_to? :skills%>
-          <h3 class="title left">Competências</h3>
+          <h3 class="title left bot">Competências</h3>
           <%= f.fields_for :cv do |cv_fields| %>
-            editar: <%= cv_fields.text_area :skills, value: @empregado.cv.skills.join("\n")%>
+            <%= cv_fields.text_area :skills, value: @empregado.cv.skills.join("\n")%>
         <%end%>
       <%end%>
     </div>

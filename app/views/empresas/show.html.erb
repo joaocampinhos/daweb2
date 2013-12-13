@@ -21,7 +21,9 @@
       <br>
       <div>
         <% @empresa.departamentos.each do |dep| %>
-          <h3 class="title">Departamento de <%= dep.name %></h3>
+          <% if dep.empregados.any? %>
+            <h3 class="title">Departamento de <%= dep.name %></h3>
+          <%end%>
           <% dep.empregados.each do |emp| %>
             <% if (!@owner || emp.id==current_empregado.id) %>
               <div class="contact">

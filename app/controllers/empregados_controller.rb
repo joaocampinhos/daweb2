@@ -1,6 +1,6 @@
 class EmpregadosController < ApplicationController
-  before_action :set_empregado, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_empregado!
+  before_action :set_empregado, only: [:show, :edit, :update, :destroy]
 
   # GET /empregados
   # GET /empregados.json
@@ -33,6 +33,8 @@ class EmpregadosController < ApplicationController
 
   # GET /empregados/1/edit
   def edit
+    cv = Cv.find_or_initialize_by(empregado_id: current_empregado.id)
+    cv.save
     if @empregado.id != current_empregado.id
       redirect_to root_path
     end
@@ -57,7 +59,13 @@ class EmpregadosController < ApplicationController
   # PATCH/PUT /empregados/1
   # PATCH/PUT /empregados/1.json
   def update
-    Cv.create(:empregado_id => current_empregado.id)
+    cv = Cv.find_or_initialize_by(empregado_id: current_empregado.id)
+    if params[:empregado][:cv_attributes]
+      academic = params[:empregado][:cv_attributes][:academic].split(/\n/)
+      exp = params[:empregado][:cv_attributes][:exp].split(/\n/)
+      skills = params[:empregado][:cv_attributes][:skills].split(/\n/)
+      cv.update(:academic => academic, :exp => exp, :skills => skills)
+    end
     respond_to do |format|
       if @empregado.update(empregado_params)
         format.html { redirect_to @empregado, notice: 'Empregado was successfully updated.' }
