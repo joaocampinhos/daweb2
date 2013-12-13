@@ -15,6 +15,10 @@ class EmpresasController < ApplicationController
     if  @empresa.owner_id == current_empregado.id
       @owner = true
     end
+    @exemp = []
+    @empresa.exemp_id.each do |a|
+      @exemp.push Empregado.find(a)
+    end
   end
 
   # GET /empresas/new
@@ -50,7 +54,8 @@ class EmpresasController < ApplicationController
     user.departamento_id = nil
     user.save
     emp = Empresa.find_by(:owner_id => current_empregado.id)
-    logger.debug emp
+    emp.exemp_id = emp.exemp_id.push(user.id)
+    emp.save
     redirect_to empresa_path Empresa.find_by(:owner_id => current_empregado.id)
   end
 

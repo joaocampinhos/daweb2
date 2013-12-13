@@ -40,6 +40,12 @@
         <% end %>
         <div>
           <h3 class="title">Ex-funcionarios</h3>
+          <% @exemp.each do |e| %>
+                          <div class="contact">
+              <%= link_to image_tag("/images/avatar/#{e.image}.png", alt: e.name), e %>
+              <p><%= link_to e.name, e %> <span><%= link_to e.email, "mailto:#{e.email}" %></span></p>
+            </div>
+          <%end%>
         </div>
       </div>
     </div>
