@@ -22,8 +22,8 @@
         <li><a <%if controller.controller_name == "empregados"%>class="selected"<%end%>href="/empregados/<%= current_empregado.id %>">Perfil</a></li>
         <li><a <%if controller.controller_name == "contactos"%>class="selected"<%end%>href="/contactos">Contactos</a></li>
         <li><a <%if controller.controller_name == "empresas"%>class="selected"<%end%>href="/empresas">Empresas</a></li>
-        <li class="hidden-desktop"><a href="#/settings">Definições</a></li>
-        <li class="hidden-desktop"><a href="#/logout">Sair</a></li>
+        <li class="hidden-desktop"><%= link_to "Criar Empresa", new_empresa_path %></li>
+        <li class="hidden-desktop"><%= link_to "Sair", destroy_empregado_session_path, :method => :delete %></li>
       </ul>
     </div>
     <div class="fright dropdown hidden-phone">
