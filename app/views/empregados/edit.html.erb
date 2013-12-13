@@ -22,12 +22,7 @@
 
           <h2 class="title">Curriculum Vitæ</h2>
           <br>
-          <h3 class="title left">Experiência Profissional</h3>
-          <p class="cv"></p>
-          <h3 class="title left">Formação Académica</h3>
-          <p class="cv"></p>
-          <h3 class="title left">Competências</h3>
-          <p class="cv"></p>
+       
         </div>
         <div>
           <br>
@@ -35,18 +30,22 @@
           <% if @empregado.cv.respond_to? :exp%>
             <h3 class="title left">Experiência Profissional</h3>
               <%= f.fields_for :cv do |cv_fields| %>
-          exp  : <%= cv_fields.text_field :exp %>
+          editar: <%= cv_fields.text_area :exp %>
+          <%end%>
             <ul>
               <% @empregado.cv.exp.each do |e| %>
                 <li class="cv"><%=e%></li>
               <% end %>
-              
+
 
 
             </ul>
           <% end %>
           <% if @empregado.cv.respond_to? :academic%>
-            <h3 class="title left">Formação Académica</h3>           
+            <h3 class="title left">Formação Académica</h3>
+               <%= f.fields_for :cv do |cv_fields| %>
+          editar: <%= cv_fields.text_field :academic %>  
+          <% end %>           
             <ul>
               <% @empregado.cv.academic.each do |e| %>
                 <li class="cv"><%=e%></li>
@@ -56,7 +55,10 @@
             </ul>
           <% end %>
           <% if @empregado.cv.respond_to? :skills%>          
-            <h3 class="title left">Competências</h3>            
+            <h3 class="title left">Competências</h3>  
+            <%= f.fields_for :cv do |cv_fields| %>
+          editar: <%= cv_fields.text_field :skills %>  
+            <%end%>   
             <ul>
               <% @empregado.cv.skills.each do |e| %>
                 <li class="cv"><%=e%></li>              
@@ -68,4 +70,4 @@
       </div>
     </div>
   <% end %>
-   <% end %>
+  
