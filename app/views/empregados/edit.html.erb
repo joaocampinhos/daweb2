@@ -19,6 +19,7 @@
           <%= f.text_area :about %>
         </div>
         <div>
+
           <h2 class="title">Curriculum Vitæ</h2>
           <br>
           <h3 class="title left">Experiência Profissional</h3>
@@ -30,31 +31,41 @@
         </div>
         <div>
           <br>
+    
           <% if @empregado.cv.respond_to? :exp%>
             <h3 class="title left">Experiência Profissional</h3>
+              <%= f.fields_for :cv do |cv_fields| %>
+          exp  : <%= cv_fields.text_field :exp %>
             <ul>
               <% @empregado.cv.exp.each do |e| %>
                 <li class="cv"><%=e%></li>
               <% end %>
+              
+
+
             </ul>
           <% end %>
           <% if @empregado.cv.respond_to? :academic%>
-            <h3 class="title left">Formação Académica</h3>
+            <h3 class="title left">Formação Académica</h3>           
             <ul>
               <% @empregado.cv.academic.each do |e| %>
                 <li class="cv"><%=e%></li>
               <% end %>
+
+
             </ul>
           <% end %>
-          <% if @empregado.cv.respond_to? :skills%>
-            <h3 class="title left">Competências</h3>
+          <% if @empregado.cv.respond_to? :skills%>          
+            <h3 class="title left">Competências</h3>            
             <ul>
               <% @empregado.cv.skills.each do |e| %>
-                <li class="cv"><%=e%></li>
+                <li class="cv"><%=e%></li>              
               <% end %>
+
             </ul>
           <%end%>
         </div>
       </div>
     </div>
   <% end %>
+   <% end %>

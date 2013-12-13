@@ -9,4 +9,6 @@ class Empregado < ActiveRecord::Base
   has_many :posts
   belongs_to :departamento
   has_one :cv
+
+	accepts_nested_attributes_for :cv
 end
