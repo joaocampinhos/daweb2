@@ -1,19 +1,10 @@
 <%= form_for(@empregado) do |f| %>
+  <%= f.hidden_field :image, :value => 0 %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "forminput", :placeholder => "Nome", :required => true %>
   </div>
-  <div class="field">
-    <%= f.label :departamento_id %><br>
-    <%= f.number_field :departamento_id %>
-  </div>
+  <br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Criar Utilizador", class: "button btngreen" %>
   </div>
-   </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-
-   </div>
 <% end %>

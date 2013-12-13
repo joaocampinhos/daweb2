@@ -6,9 +6,9 @@
         <img src="/images/avatar/<%= @empregado.image %>.png" alt="avatar">
       </div>
       <div class="info">
-        <h1 class="name"><%= f.text_field :name %></h1>
-        <h3 class="job"><span class="jobedit"><%= f.text_field :job %></span> na empresa <span class="compedit"><%= link_to @empregado.departamento.empresa.name, @empregado.departamento.empresa %><%= f.select(:departamento_id, Departamento.all.collect {|d| [d.name, d.id]}) %> </span></h3>
-        <p class="location"><span class="locationedit"><%= f.text_field :location %></p>
+        <p class="name">Nome: <%= f.text_field :name %></p>
+        <p class="job">Cargo: <span class="jobedit"><%= f.text_field :job %></p>
+        <p class="location">Localização: <%= f.text_field :location %></p>
       </div>
       <div class="add">
         <%=f.submit "Confirmar", :class => "button btngreen"%>

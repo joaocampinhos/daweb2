@@ -6,7 +6,9 @@
       </div>
       <div class="info">
         <h1 class="name"><%= @empregado.name %></h1>
-        <h3 class="job"><span class="jobedit"><%= @empregado.job %></span> na empresa <span class="compedit"><%= link_to @empregado.departamento.empresa.name, @empregado.departamento.empresa %></span></h3>
+        <%if @empregado.departamento.respond_to? :empresa%>
+          <h3 class="job"><span class="jobedit"><%= @empregado.job %></span> na empresa <span class="compedit"><%= link_to(@empregado.departamento.empresa.name, @empregado.departamento.empresa)%></span></h3>
+        <%end%>
         <p class="location"><span class="locationedit"><%= @empregado.location %></p>
           <% if current_empregado.id == @empregado.id %>
             <h3 class="friends"><a href="/contactos"><%= @empregado.contactos.where(:pendente => false).count %> contactos</a></h3>
@@ -25,12 +27,12 @@
         <% end %>
       </div>
       <div class="about">
-        <h2 class="title">Sobre mim</h2>
+        <% if @empregado.about %><h2 class="title">Sobre mim</h2><%end%>
         <p class="location"><span class="locationedit"><%= @empregado.about %></p>
         </div>
         <div>
           <br>
-          <% if @empregado.cv.exp %>
+          <% if @empregado.cv.respond_to? :exp%>
             <h3 class="title left">Experiência Profissional</h3>
             <ul>
               <% @empregado.cv.exp.each do |e| %>
@@ -38,8 +40,7 @@
               <% end %>
             </ul>
           <% end %>
-
-          <% if @empregado.cv.academic %>
+          <% if @empregado.cv.respond_to? :academic%>
             <h3 class="title left">Formação Académica</h3>
             <ul>
               <% @empregado.cv.academic.each do |e| %>
@@ -47,15 +48,15 @@
               <% end %>
             </ul>
           <% end %>
-
-          <% if @empregado.cv.skills %>
+          <% if @empregado.cv.respond_to? :skills%>
             <h3 class="title left">Competências</h3>
             <ul>
               <% @empregado.cv.skills.each do |e| %>
                 <li class="cv"><%=e%></li>
               <% end %>
             </ul>
-          <% end %>
+          <%end%>
         </div>
       </div>
     </div>
+  </div>

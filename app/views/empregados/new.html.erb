@@ -14,31 +14,14 @@ form {
   padding: 0 100px;
   width: 100%;
 }
-.forminput {
-  width: 100%;
-  display: block;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 16px;
-  line-height: 1.428571429;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 </style>
 </head>
 <body>
 <div class="container">
   <div class="fullwidth">
-    <%=debug @empregado%>
-    <h1>New empregado</h1>
-
+    <h1 class="title">Introduzir Nome</h1>
+    <br />
     <%= render 'form' %>
-
-    <%= link_to 'Back', empregados_path %>
   </div>
 </div>
 </body>

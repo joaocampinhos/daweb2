@@ -1,6 +1,25 @@
-<h1>Editing empresa</h1>
+<%= form_for(@empresa) do |f| %>
+  <div class="container">
+    <div class="fullwidth">
+      <div class="profile">
+        <div class="profilebig">
+          <img src="/images/logos/<%=@empresa.logo%>" alt="logo">
+        </div>
+        <div class="info">
+          <%= f.hidden_field :logo, :value => "company_placeholder.png" %>
+          <%= f.hidden_field :owner_id, :value => current_empregado.id %>
+          <%= f.text_field :name, :class => "forminput", :placeholder => "Nome" %>
+          <h3 class="friends"><%= @empresa.empregados.count %> Funcionarios</h3>
+        </div>
+        <div class="add">
+          <%= f.submit "Confirmar" , :class => "button btngreen" %>
+        </div>
+      </div>
+      <div class="about">
+        <h2 class="title">Descrição da empresa</h2>
+        <%= f.text_area :description %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @empresa %> |
-<%= link_to 'Back', empresas_path %>
