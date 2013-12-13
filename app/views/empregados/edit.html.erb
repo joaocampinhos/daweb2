@@ -1,33 +1,60 @@
 <%= form_for(@empregado) do |f| %>
-<div class="container">
-  <div class="fullwidth">
-    <div class="profile">
-      <div class="profilebig">
-        <img src="/images/avatar/<%= @empregado.image %>.png" alt="avatar">
-      </div>
-      <div class="info">
-        <p class="name">Nome: <%= f.text_field :name %></p>
-        <p class="job">Cargo: <span class="jobedit"><%= f.text_field :job %></p>
-        <p class="location">Localização: <%= f.text_field :location %></p>
-      </div>
-      <div class="add">
-        <%=f.submit "Confirmar", :class => "button btngreen"%>
+  <div class="container">
+    <div class="fullwidth">
+      <div class="profile">
+        <div class="profilebig">
+          <img src="/images/avatar/<%= @empregado.image %>.png" alt="avatar">
+        </div>
+        <div class="info">
+          <p class="name">Nome: <%= f.text_field :name %></p>
+          <p class="job">Cargo: <span class="jobedit"><%= f.text_field :job %></p>
+            <p class="location">Localização: <%= f.text_field :location %></p>
+          </div>
+          <div class="add">
+            <%=f.submit "Confirmar", :class => "button btngreen"%>
+          </div>
+        </div>
+        <div class="about">
+          <h2 class="title">Sobre mim</h2>
+          <%= f.text_area :about %>
+        </div>
+        <div>
+          <h2 class="title">Curriculum Vitæ</h2>
+          <br>
+          <h3 class="title left">Experiência Profissional</h3>
+          <p class="cv"></p>
+          <h3 class="title left">Formação Académica</h3>
+          <p class="cv"></p>
+          <h3 class="title left">Competências</h3>
+          <p class="cv"></p>
+        </div>
+        <div>
+          <br>
+          <% if @empregado.cv.respond_to? :exp%>
+            <h3 class="title left">Experiência Profissional</h3>
+            <ul>
+              <% @empregado.cv.exp.each do |e| %>
+                <li class="cv"><%=e%></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <% if @empregado.cv.respond_to? :academic%>
+            <h3 class="title left">Formação Académica</h3>
+            <ul>
+              <% @empregado.cv.academic.each do |e| %>
+                <li class="cv"><%=e%></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <% if @empregado.cv.respond_to? :skills%>
+            <h3 class="title left">Competências</h3>
+            <ul>
+              <% @empregado.cv.skills.each do |e| %>
+                <li class="cv"><%=e%></li>
+              <% end %>
+            </ul>
+          <%end%>
+        </div>
       </div>
     </div>
-    <div class="about">
-      <h2 class="title">Sobre mim</h2>
-      <%= f.text_area :about %>
-    </div>
-    <div>
-      <h2 class="title">Curriculum Vitæ</h2>
-      <br>
-      <h3 class="title left">Experiência Profissional</h3>
-      <p class="cv"></p>
-      <h3 class="title left">Formação Académica</h3>
-      <p class="cv"></p>
-      <h3 class="title left">Competências</h3>
-      <p class="cv"></p>
-    </div>
-  </div>
-</div>
-<% end %>
+  <% end %>

@@ -32,14 +32,6 @@
         </div>
         <div>
           <br>
-          <% if @empregado.cv.respond_to? :exp%>
-            <h3 class="title left">Experiência Profissional</h3>
-            <ul>
-              <% @empregado.cv.exp.each do |e| %>
-                <li class="cv"><%=e%></li>
-              <% end %>
-            </ul>
-          <% end %>
           <% if @empregado.cv.respond_to? :academic%>
             <h3 class="title left">Formação Académica</h3>
             <ul>
